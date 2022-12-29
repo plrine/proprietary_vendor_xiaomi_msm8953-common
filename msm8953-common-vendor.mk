@@ -61,7 +61,6 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/msm8953-common/proprietary/vendor/etc/init/imsqmidaemon.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/imsqmidaemon.rc \
     vendor/xiaomi/msm8953-common/proprietary/vendor/etc/init/imsrcsd.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/imsrcsd.rc \
     vendor/xiaomi/msm8953-common/proprietary/vendor/etc/init/init-qcril-data.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init-qcril-data.rc \
-    vendor/xiaomi/msm8953-common/proprietary/vendor/etc/init/init.time_daemon.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.time_daemon.rc \
     vendor/xiaomi/msm8953-common/proprietary/vendor/etc/init/netmgrd.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/netmgrd.rc \
     vendor/xiaomi/msm8953-common/proprietary/vendor/etc/init/port-bridge.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/port-bridge.rc \
     vendor/xiaomi/msm8953-common/proprietary/vendor/etc/init/qcrild.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/qcrild.rc \
@@ -192,7 +191,6 @@ PRODUCT_PACKAGES += \
     libsensor_user_cal \
     libsysmon_cdsp_skel \
     libthermalclient \
-    libtime_genoff \
     libtinyxml2_1 \
     libwms \
     libwvdrmengine \
@@ -296,6 +294,7 @@ PRODUCT_PACKAGES += \
     libsystem_health_mon \
     libthermalfeature \
     libthermalioctl \
+    libtime_genoff \
     libwqe \
     libwvhidl \
     libxml \
@@ -368,7 +367,6 @@ PRODUCT_PACKAGES += \
     vendor.qti.imsrtpservice@2.1 \
     CneApp \
     IWlanService \
-    TimeService \
     PowerOffAlarm \
     QtiTelephonyService \
     embms \
@@ -423,7 +421,6 @@ PRODUCT_PACKAGES += \
     slim_daemon \
     tftp_server \
     thermal-engine \
-    time_daemon \
     xtra-daemon \
     dpmd
 
