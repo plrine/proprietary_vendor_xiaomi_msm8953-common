@@ -232,12 +232,6 @@ android_app_import {
 }
 
 dex_import {
-	name: "com.qti.snapdragon.sdk.display",
-	owner: "xiaomi",
-	jars: ["proprietary/framework/com.qti.snapdragon.sdk.display.jar"],
-}
-
-dex_import {
 	name: "tcmclient",
 	owner: "xiaomi",
 	jars: ["proprietary/framework/tcmclient.jar"],
@@ -470,3 +464,4 @@ install_symlink {
 	installed_location: "priv-app/ims/lib/arm64/libimsmedia_jni.so",
 	symlink_target: "/system_ext/lib64/libimsmedia_jni.so",
 }
+
