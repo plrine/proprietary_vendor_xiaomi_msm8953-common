@@ -12,13 +12,13 @@ Confidential and Proprietary - Qualcomm Technologies, Inc.
         a candidate for interface selection -->
         <!-- NOTE: There needs to be two threshold values
         first one for 2.4 GHz and the second for 5 GHz -->
-        <RSSIAddThreshold units="dbm">-78,-78</RSSIAddThreshold>
+        <RSSIAddThreshold units="dbm">-64,-69</RSSIAddThreshold>
         <!-- RSSI threshold from which all values lesser than it is
         considered to be bad for wlan to be
         a candidate for interface selection -->
         <!-- NOTE: There needs to be two threshold values
         first one for 2.4 GHz and the second for 5 GHz -->
-        <RSSIDropThreshold units="dbm">-85,-87</RSSIDropThreshold>
+        <RSSIDropThreshold units="dbm">-67,-72</RSSIDropThreshold>
     </profile>
     <profile id="2">
         <!-- RSSI threshold from which all values greater than it is
@@ -26,13 +26,13 @@ Confidential and Proprietary - Qualcomm Technologies, Inc.
         a candidate for interface selection -->
         <!-- NOTE: There needs to be two threshold values
         first one for 2.4 GHz and the second for 5 GHz -->
-        <RSSIAddThreshold units="dbm">-64,-70</RSSIAddThreshold>
+        <RSSIAddThreshold units="dbm">-78,-83</RSSIAddThreshold>
         <!-- RSSI threshold from which all values lesser than it is
         considered to be bad for wlan to be
         a candidate for interface selection -->
         <!-- NOTE: There needs to be two threshold values
         first one for 2.4 GHz and the second for 5 GHz -->
-        <RSSIDropThreshold units="dbm">-67,-73</RSSIDropThreshold>
+        <RSSIDropThreshold units="dbm">-82,-87</RSSIDropThreshold>
     </profile>
     <profile id="3">
         <!-- RSSI threshold from which all values greater than it is
@@ -40,13 +40,13 @@ Confidential and Proprietary - Qualcomm Technologies, Inc.
         a candidate for interface selection -->
         <!-- NOTE: There needs to be two threshold values
         first one for 2.4 GHz and the second for 5 GHz -->
-        <RSSIAddThreshold units="dbm">-72,-75</RSSIAddThreshold>
+        <RSSIAddThreshold units="dbm">-67,-72</RSSIAddThreshold>
         <!-- RSSI threshold from which all values lesser than it is
         considered to be bad for wlan to be
         a candidate for interface selection -->
         <!-- NOTE: There needs to be two threshold values
         first one for 2.4 GHz and the second for 5 GHz -->
-        <RSSIDropThreshold units="dbm">-75,-80</RSSIDropThreshold>
+        <RSSIDropThreshold units="dbm">-70,-75</RSSIDropThreshold>
     </profile>
     <profile id="4">
         <!-- RSSI threshold from which all values greater than it is
@@ -54,13 +54,13 @@ Confidential and Proprietary - Qualcomm Technologies, Inc.
         a candidate for interface selection -->
         <!-- NOTE: There needs to be two threshold values
         first one for 2.4 GHz and the second for 5 GHz -->
-        <RSSIAddThreshold units="dbm">-72,-72</RSSIAddThreshold>
+        <RSSIAddThreshold units="dbm">-82,-83</RSSIAddThreshold>
         <!-- RSSI threshold from which all values lesser than it is
         considered to be bad for wlan to be
         a candidate for interface selection -->
         <!-- NOTE: There needs to be two threshold values
         first one for 2.4 GHz and the second for 5 GHz -->
-        <RSSIDropThreshold units="dbm">-79,-79</RSSIDropThreshold>
+        <RSSIDropThreshold units="dbm">-85,-87</RSSIDropThreshold>
     </profile>
     <profile id="5">
         <!-- RSSI threshold from which all values greater than it is
@@ -68,13 +68,27 @@ Confidential and Proprietary - Qualcomm Technologies, Inc.
         a candidate for interface selection -->
         <!-- NOTE: There needs to be two threshold values
         first one for 2.4 GHz and the second for 5 GHz -->
-        <RSSIAddThreshold units="dbm">-70,-75</RSSIAddThreshold>
+        <RSSIAddThreshold units="dbm">-75,-75</RSSIAddThreshold>
         <!-- RSSI threshold from which all values lesser than it is
         considered to be bad for wlan to be
         a candidate for interface selection -->
         <!-- NOTE: There needs to be two threshold values
         first one for 2.4 GHz and the second for 5 GHz -->
-        <RSSIDropThreshold units="dbm">-73,-79</RSSIDropThreshold>
+        <RSSIDropThreshold units="dbm">-79,-79</RSSIDropThreshold>
+    </profile>
+    <profile id="6">
+        <!-- RSSI threshold from which all values greather than it is
+        considered to be good for wlan to be
+        a candidate for interface selection -->
+        <!-- NOTE: There needs to be two threshold values
+        first one for 2.4 GHz and the second for 5 GHz -->
+        <RSSIAddThreshold units="dbm">-75,-75</RSSIAddThreshold>
+        <!-- RSSI threshold from which all values lesser than it is
+        considered to be bad for wlan to be
+        a candidate for interface selection -->
+        <!-- NOTE: There needs to be two threshold values
+        first one for 2.4 GHz and the second for 5 GHz -->
+        <RSSIDropThreshold units="dbm">-79,-80</RSSIDropThreshold>
     </profile>
 </profiles>
 </resources>
