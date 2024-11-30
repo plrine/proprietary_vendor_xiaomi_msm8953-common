@@ -4596,53 +4596,6 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.qti.hardware.qdutils_disp@1.0",
-    owner: "xiaomi",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/vendor.qti.hardware.qdutils_disp@1.0.so",
-            ],
-            shared_libs: [
-                "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
-                "liblog",
-                "libutils",
-                "libcutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0.so",
-            ],
-            shared_libs: [
-                "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
-                "liblog",
-                "libutils",
-                "libcutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
     name: "vendor.qti.hardware.tui_comm@1.0",
     owner: "xiaomi",
     strip: {
@@ -9554,14 +9507,6 @@ android_app_import {
 }
 
 dex_import {
-    name: "com.qti.snapdragon.sdk.display",
-    owner: "xiaomi",
-    jars: [
-        "proprietary/system/framework/com.qti.snapdragon.sdk.display.jar",
-    ],
-}
-
-dex_import {
     name: "tcmclient",
     owner: "xiaomi",
     jars: [
@@ -9929,42 +9874,6 @@ cc_prebuilt_binary {
                 "libhardware",
                 "libhidlbase",
                 "vendor.qti.hardware.alarm@1.0",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    strip: {
-        none: true,
-    },
-    prefer: true,
-    relative_install_path: "hw",
-    soc_specific: true,
-}
-
-cc_prebuilt_binary {
-    name: "vendor.qti.hardware.qdutils_disp@1.0-service-qti",
-    owner: "xiaomi",
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/bin/hw/vendor.qti.hardware.qdutils_disp@1.0-service-qti",
-            ],
-            shared_libs: [
-                "liblog",
-                "libcutils",
-                "libbase",
-                "libutils",
-                "libhardware",
-                "libhwbinder",
-                "libhidlbase",
-                "libhidltransport",
-                "libbinder",
-                "libqdutils",
-                "vendor.qti.hardware.qdutils_disp@1.0",
                 "libc++",
                 "libc",
                 "libm",
