@@ -178,7 +178,6 @@ PRODUCT_PACKAGES += \
     libsdsprpc \
     libsensor1 \
     libsensor_reg \
-    libsensor_user_cal \
     libthermalclient \
     libtinyxml2_1 \
     libwms \
