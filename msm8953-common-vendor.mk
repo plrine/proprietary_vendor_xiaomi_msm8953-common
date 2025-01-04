@@ -107,14 +107,6 @@ PRODUCT_PACKAGES += \
     vulkan.msm8953 \
     libC2D2 \
     libCB \
-    libOmxAacDec \
-    libOmxAlacDec \
-    libOmxAmrDec \
-    libOmxAmrwbplusDec \
-    libOmxApeDec \
-    libOmxEvrcDec \
-    libOmxQcelp13Dec \
-    libOmxWmaDec \
     libOpenCL \
     libQSEEComAPI \
     libacdb-fts \
@@ -155,7 +147,6 @@ PRODUCT_PACKAGES += \
     libmdmdetect \
     libmdsprpc \
     libminksocket \
-    libmm-color-convertor \
     libmm-hdcpmgr \
     libperipheral_client \
     libqcci_legacy \
@@ -201,7 +192,6 @@ PRODUCT_PACKAGES += \
     libadm \
     libadpcmdec \
     libdrc \
-    libmmosal_proprietary \
     libsmwrapper \
     libsurround_3mic_proc \
     libvqzip \
