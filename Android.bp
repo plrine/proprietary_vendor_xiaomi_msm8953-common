@@ -219,20 +219,6 @@ android_app_import {
 }
 
 dex_import {
-	name: "vendor.qti.hardware.data.latency-V1.0-java",
-	owner: "xiaomi",
-	jars: ["proprietary/product/framework/vendor.qti.hardware.data.latency-V1.0-java.jar"],
-	product_specific: true,
-}
-
-dex_import {
-	name: "vendor.qti.latency-V2.0-java",
-	owner: "xiaomi",
-	jars: ["proprietary/product/framework/vendor.qti.latency-V2.0-java.jar"],
-	product_specific: true,
-}
-
-dex_import {
 	name: "QtiTelephonyServicelibrary",
 	owner: "xiaomi",
 	jars: ["proprietary/system_ext/framework/QtiTelephonyServicelibrary.jar"],
@@ -313,6 +299,27 @@ dex_import {
 	name: "dpmapi",
 	owner: "xiaomi",
 	jars: ["proprietary/system_ext/framework/dpmapi.jar"],
+	system_ext_specific: true,
+}
+
+dex_import {
+	name: "vendor.qti.hardware.data.latency-V1.0-java",
+	owner: "xiaomi",
+	jars: ["proprietary/system_ext/framework/vendor.qti.hardware.data.latency-V1.0-java.jar"],
+	system_ext_specific: true,
+}
+
+dex_import {
+	name: "vendor.qti.latency-V2.0-java",
+	owner: "xiaomi",
+	jars: ["proprietary/system_ext/framework/vendor.qti.latency-V2.0-java.jar"],
+	system_ext_specific: true,
+}
+
+dex_import {
+	name: "vendor.qti.latency-V2.1-java",
+	owner: "xiaomi",
+	jars: ["proprietary/system_ext/framework/vendor.qti.latency-V2.1-java.jar"],
 	system_ext_specific: true,
 }
 
