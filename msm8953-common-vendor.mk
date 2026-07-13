@@ -98,13 +98,13 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     com.qualcomm.qti.dpm.api@1.0_vendor \
-    eglSubDriverAndroid \
     libEGL_adreno \
     libGLESv1_CM_adreno \
     libGLESv2_adreno \
-    libQTapGLES \
     libq3dtools_adreno \
-    vulkan.msm8953 \
+    libq3dtools_esx \
+    vulkan.adreno \
+    vulkan.pastel \
     libC2D2 \
     libCB \
     libOpenCL \
@@ -121,7 +121,7 @@ PRODUCT_PACKAGES += \
     libaudioalsa \
     libaudioconfigstore \
     libaudioparsers \
-    libbccQTI \
+    libc2d30-a3xx \
     libc2d30_bltlib \
     libcne \
     libcneapiclient \
@@ -149,6 +149,7 @@ PRODUCT_PACKAGES += \
     libminksocket \
     libmm-hdcpmgr \
     libperipheral_client \
+    libpvr \
     libqcci_legacy \
     libqdi \
     libqdp \
@@ -175,6 +176,8 @@ PRODUCT_PACKAGES += \
     libwvdrmengine \
     sensors.ssc \
     vendor.display.color@1.0 \
+    vendor.display.color@1.1 \
+    vendor.display.color@1.2 \
     vendor.display.postproc@1.0 \
     vendor.qti.data.factory@2.0 \
     vendor.qti.hardware.data.cne.internal.api@1.0 \
@@ -186,6 +189,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.data.iwlan@1.0 \
     vendor.qti.hardware.data.latency@1.0 \
     vendor.qti.hardware.data.qmi@1.0 \
+    vendor.qti.hardware.qdutils_disp@1.0 \
     vendor.qti.hardware.tui_comm@1.0 \
     vendor.qti.ims.rcsconfig@1.0_vendor \
     vendor.qti.latency@2.0 \
@@ -202,6 +206,7 @@ PRODUCT_PACKAGES += \
     com.qualcomm.qti.imscmservice@2.2 \
     com.qualcomm.qti.uceservice@2.0 \
     com.qualcomm.qti.uceservice@2.1 \
+    eglSubDriverAndroid \
     android.hardware.bluetooth@1.0-impl-qti \
     vendor.qti.gnss@3.0-impl \
     vendor.qti.hardware.alarm@1.0-impl \
@@ -319,19 +324,19 @@ PRODUCT_PACKAGES += \
     vendor.qti.imsrtpservice@2.0_vendor \
     vendor.qti.imsrtpservice@2.1-service-Impl \
     vendor.qti.imsrtpservice@2.1_vendor \
-    dirac_resource \
-    libFastRPC_AUE_Forward_skel \
-    libFastRPC_UTF_Forward_Qtc2_skel \
-    libadsp_hvx_add_constant \
-    libadsp_hvx_skel \
-    libadsp_hvx_stats \
-    libadsp_hvx_zzhdr_BGGR \
-    libadsp_hvx_zzhdr_RGGB \
-    libapps_mem_heap \
-    libdirac-capiv2 \
-    libdspCV_skel \
-    libfastcvadsp \
-    libfastcvadsp_skel \
+    vendor_lib_rfsa_adsp_dirac_resource_dar \
+    vendor_lib_rfsa_adsp_libFastRPC_AUE_Forward_skel_so \
+    vendor_lib_rfsa_adsp_libFastRPC_UTF_Forward_Qtc2_skel_so \
+    vendor_lib_rfsa_adsp_libadsp_hvx_add_constant_so \
+    vendor_lib_rfsa_adsp_libadsp_hvx_skel_so \
+    vendor_lib_rfsa_adsp_libadsp_hvx_stats_so \
+    vendor_lib_rfsa_adsp_libadsp_hvx_zzhdr_BGGR_so \
+    vendor_lib_rfsa_adsp_libadsp_hvx_zzhdr_RGGB_so \
+    vendor_lib_rfsa_adsp_libapps_mem_heap_so \
+    vendor_lib_rfsa_adsp_libdirac-capiv2_so \
+    vendor_lib_rfsa_adsp_libdspCV_skel_so \
+    vendor_lib_rfsa_adsp_libfastcvadsp_so \
+    vendor_lib_rfsa_adsp_libfastcvadsp_skel_so \
     com.qualcomm.qti.dpm.api@1.0 \
     libdiag_system \
     libdpmctmgr \
@@ -403,4 +408,8 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     system_ext_priv-app_ims_lib_arm64_libimscamera_jni_so \
-    system_ext_priv-app_ims_lib_arm64_libimsmedia_jni_so
+    system_ext_priv-app_ims_lib_arm64_libimsmedia_jni_so \
+    vendor_lib_libEGL_adreno_so \
+    vendor_lib_libq3dtools_adreno_so \
+    vendor_lib64_libEGL_adreno_so \
+    vendor_lib64_libq3dtools_adreno_so
