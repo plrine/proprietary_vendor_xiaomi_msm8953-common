@@ -143,7 +143,6 @@ PRODUCT_PACKAGES += \
     libgsl \
     libhdr_tm \
     libidl \
-    liblistenjni \
     liblistensoundmodel2 \
     libllvm-glnext \
     libllvm-qcom \
