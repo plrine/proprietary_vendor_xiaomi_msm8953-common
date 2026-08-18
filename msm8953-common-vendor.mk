@@ -232,7 +232,6 @@ PRODUCT_PACKAGES += \
     lib-uceservice \
     libGPreqcancel \
     libGPreqcancel_svc \
-    libSecureUILib \
     libStDrvInt \
     libbt-hidlclient \
     libbtnv \
