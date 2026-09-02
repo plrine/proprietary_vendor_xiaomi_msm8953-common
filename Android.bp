@@ -1327,9 +1327,9 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "liblog",
+                "libc",
                 "libcutils",
                 "libc++",
-                "libc",
                 "libm",
                 "libdl",
             ],
@@ -1340,9 +1340,9 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "liblog",
+                "libc",
                 "libcutils",
                 "libc++",
-                "libc",
                 "libm",
                 "libdl",
             ],
@@ -1463,6 +1463,7 @@ cc_prebuilt_library_shared {
                 "libdiag",
                 "libcutils",
                 "libmdmdetect",
+                "libnetutils",
                 "libc++",
                 "libc",
                 "libm",
@@ -1478,6 +1479,7 @@ cc_prebuilt_library_shared {
                 "libdiag",
                 "libcutils",
                 "libmdmdetect",
+                "libnetutils",
                 "libc++",
                 "libc",
                 "libm",
@@ -2103,7 +2105,12 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib/libminksocket.so",
             ],
             shared_libs: [
+                "libqrtr",
+                "libcutils",
+                "liblog",
+                "libc++",
                 "libc",
+                "libm",
                 "libdl",
             ],
         },
@@ -2112,7 +2119,12 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libminksocket.so",
             ],
             shared_libs: [
+                "libqrtr",
+                "libcutils",
+                "liblog",
+                "libc++",
                 "libc",
+                "libm",
                 "libdl",
             ],
         },
@@ -2267,7 +2279,7 @@ cc_prebuilt_library_shared {
                 "libdiag",
                 "libidl",
                 "libqmi_client_qmux",
-                "libqmi",
+                "libqmi_legacy",
                 "liblog",
                 "libc++",
                 "libc",
@@ -2284,7 +2296,7 @@ cc_prebuilt_library_shared {
                 "libdiag",
                 "libidl",
                 "libqmi_client_qmux",
-                "libqmi",
+                "libqmi_legacy",
                 "liblog",
                 "libc++",
                 "libc",
@@ -2310,7 +2322,6 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib/libqdi.so",
             ],
             shared_libs: [
-                "libqmi",
                 "libdiag",
                 "libdsutils",
                 "libqmiservices",
@@ -2318,6 +2329,7 @@ cc_prebuilt_library_shared {
                 "libqmi_common_so",
                 "libqmi_client_qmux",
                 "libqmi_client_helper",
+                "libqmi",
                 "liblog",
                 "libc++",
                 "libc",
@@ -2330,7 +2342,6 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libqdi.so",
             ],
             shared_libs: [
-                "libqmi",
                 "libdiag",
                 "libdsutils",
                 "libqmiservices",
@@ -2338,6 +2349,7 @@ cc_prebuilt_library_shared {
                 "libqmi_common_so",
                 "libqmi_client_qmux",
                 "libqmi_client_helper",
+                "libqmi",
                 "liblog",
                 "libc++",
                 "libc",
@@ -2464,9 +2476,7 @@ cc_prebuilt_library_shared {
                 "libcutils",
                 "libutils",
                 "libqmi_encdec",
-                "libqmi_client_qmux",
                 "liblog",
-                "libmdmdetect",
                 "libc++",
                 "libc",
                 "libm",
@@ -2481,9 +2491,7 @@ cc_prebuilt_library_shared {
                 "libcutils",
                 "libutils",
                 "libqmi_encdec",
-                "libqmi_client_qmux",
                 "liblog",
-                "libmdmdetect",
                 "libc++",
                 "libc",
                 "libm",
@@ -2559,12 +2567,12 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib/libqmi_client_qmux.so",
             ],
             shared_libs: [
-                "libcutils",
                 "libdiag",
                 "libdsutils",
                 "libqmiservices",
                 "libidl",
                 "liblog",
+                "libcutils",
                 "libc++",
                 "libc",
                 "libm",
@@ -2576,12 +2584,12 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libqmi_client_qmux.so",
             ],
             shared_libs: [
-                "libcutils",
                 "libdiag",
                 "libdsutils",
                 "libqmiservices",
                 "libidl",
                 "liblog",
+                "libcutils",
                 "libc++",
                 "libc",
                 "libm",
@@ -2716,6 +2724,55 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+    name: "libqmi_legacy",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/libqmi_legacy.so",
+            ],
+            shared_libs: [
+                "libcutils",
+                "libqmi_client_qmux",
+                "libdiag",
+                "libdsutils",
+                "libqmiservices",
+                "libidl",
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libqmi_legacy.so",
+            ],
+            shared_libs: [
+                "libcutils",
+                "libqmi_client_qmux",
+                "libdiag",
+                "libdsutils",
+                "libqmiservices",
+                "libidl",
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
     name: "libqmiservices",
     owner: "xiaomi",
     strip: {
@@ -2740,6 +2797,41 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libidl",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libqrtr",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/libqrtr.so",
+            ],
+            shared_libs: [
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libqrtr.so",
+            ],
+            shared_libs: [
                 "libc++",
                 "libc",
                 "libm",
@@ -4142,8 +4234,6 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -4159,8 +4249,96 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.qti.ims.rcsconfig@2.0_vendor",
+    stem: "vendor.qti.ims.rcsconfig@2.0",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/vendor.qti.ims.rcsconfig@2.0.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/vendor.qti.ims.rcsconfig@2.0.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.qti.ims.rcsconfig@2.1_vendor",
+    stem: "vendor.qti.ims.rcsconfig@2.1",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/vendor.qti.ims.rcsconfig@2.1.so",
+            ],
+            shared_libs: [
+                "vendor.qti.ims.rcsconfig@2.0_vendor",
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/vendor.qti.ims.rcsconfig@2.1.so",
+            ],
+            shared_libs: [
+                "vendor.qti.ims.rcsconfig@2.0_vendor",
+                "libhidlbase",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -4418,8 +4596,6 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -4448,8 +4624,6 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -4479,8 +4653,6 @@ cc_prebuilt_library_shared {
             shared_libs: [
                 "com.qualcomm.qti.imscmservice@2.0",
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -4511,8 +4683,6 @@ cc_prebuilt_library_shared {
                 "com.qualcomm.qti.imscmservice@2.0",
                 "com.qualcomm.qti.imscmservice@2.1",
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -4541,8 +4711,6 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -4572,8 +4740,67 @@ cc_prebuilt_library_shared {
             shared_libs: [
                 "com.qualcomm.qti.uceservice@2.0",
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "com.qualcomm.qti.uceservice@2.2",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/com.qualcomm.qti.uceservice@2.2.so",
+            ],
+            shared_libs: [
+                "com.qualcomm.qti.uceservice@2.0",
+                "com.qualcomm.qti.uceservice@2.1",
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "com.qualcomm.qti.uceservice@2.3",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/com.qualcomm.qti.uceservice@2.3.so",
+            ],
+            shared_libs: [
+                "com.qualcomm.qti.uceservice@2.0",
+                "com.qualcomm.qti.uceservice@2.1",
+                "com.qualcomm.qti.uceservice@2.2",
+                "libhidlbase",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -4878,9 +5105,7 @@ cc_prebuilt_library_shared {
                 "libcutils",
                 "libbase",
                 "libutils",
-                "libhwbinder",
                 "libhidlbase",
-                "libhidltransport",
                 "com.qualcomm.qti.imscmservice@2.0",
                 "lib-imsdpl",
                 "lib-imsqimf",
@@ -4980,17 +5205,24 @@ cc_prebuilt_library_shared {
                 "libutils",
                 "libhardware_legacy",
                 "libhardware",
-                "libhwbinder",
                 "libhidlbase",
-                "libhidltransport",
                 "libqmiservices",
                 "libqti_vndfwk_detect",
+                "lib-rcsconfig",
+                "libidl",
                 "com.qualcomm.qti.imscmservice@2.0",
                 "com.qualcomm.qti.uceservice@2.0",
                 "com.qualcomm.qti.uceservice@2.1",
+                "com.qualcomm.qti.uceservice@2.2",
+                "com.qualcomm.qti.uceservice@2.3",
                 "com.qualcomm.qti.imscmservice@2.1",
                 "com.qualcomm.qti.imscmservice@2.2",
                 "vendor.qti.ims.callinfo@1.0_vendor",
+                "vendor.qti.ims.rcsconfig@2.0_vendor",
+                "vendor.qti.ims.rcsconfig@2.1_vendor",
+                "vendor.qti.ims.factory@1.0",
+                "vendor.qti.ims.factory@1.1",
+                "vendor.qti.ims.callcapability@1.0_vendor",
                 "libc++",
                 "libc",
                 "libm",
@@ -5021,18 +5253,21 @@ cc_prebuilt_library_shared {
                 "libutils",
                 "libhardware_legacy",
                 "libhardware",
-                "libhwbinder",
                 "libhidlbase",
-                "libhidltransport",
                 "libqmiservices",
                 "libqmi_cci",
                 "libqti_vndfwk_detect",
+                "libidl",
                 "com.qualcomm.qti.imscmservice@2.0",
                 "com.qualcomm.qti.imscmservice@2.1",
                 "com.qualcomm.qti.imscmservice@2.2",
                 "com.qualcomm.qti.uceservice@2.0",
                 "com.qualcomm.qti.uceservice@2.1",
+                "com.qualcomm.qti.uceservice@2.2",
+                "com.qualcomm.qti.uceservice@2.3",
                 "vendor.qti.ims.callinfo@1.0_vendor",
+                "vendor.qti.ims.factory@1.0",
+                "vendor.qti.ims.factory@1.1",
                 "libc++",
                 "libc",
                 "libm",
@@ -5059,12 +5294,9 @@ cc_prebuilt_library_shared {
             shared_libs: [
                 "librcc",
                 "libion",
-                "libhwbinder",
                 "libhidlbase",
-                "libhidltransport",
-                "vendor.qti.imsrtpservice@2.0_vendor",
-                "vendor.qti.imsrtpservice@2.1_vendor",
-                "vendor.qti.imsrtpservice@2.1-service-Impl",
+                "vendor.qti.imsrtpservice@3.0",
+                "vendor.qti.imsrtpservice@3.0-service-Impl",
                 "libdiag",
                 "libcutils",
                 "libutils",
@@ -5096,6 +5328,45 @@ cc_prebuilt_library_shared {
                 "lib-imsdpl",
                 "libcutils",
                 "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "lib-rcsconfig",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/lib-rcsconfig.so",
+            ],
+            shared_libs: [
+                "lib-imsdpl",
+                "libqmi_cci",
+                "libcutils",
+                "libutils",
+                "liblog",
+                "libqmiservices",
+                "libqmi_csi",
+                "libdiag",
+                "libhidlbase",
+                "libhardware_legacy",
+                "libqti_vndfwk_detect",
+                "vendor.qti.ims.rcsconfig@2.0_vendor",
+                "vendor.qti.ims.rcsconfig@2.1_vendor",
+                "vendor.qti.ims.factory@1.0",
+                "vendor.qti.ims.factory@1.1",
                 "libc++",
                 "libc",
                 "libm",
@@ -5216,6 +5487,7 @@ cc_prebuilt_library_shared {
                 "lib-imsxml",
                 "lib-imsqimf",
                 "liblog",
+                "libz",
                 "libc++",
                 "libc",
                 "libm",
@@ -5244,9 +5516,7 @@ cc_prebuilt_library_shared {
                 "libcutils",
                 "libbase",
                 "libutils",
-                "libhwbinder",
                 "libhidlbase",
-                "libhidltransport",
                 "lib-imsdpl",
                 "lib-imsqimf",
                 "lib-imsxml",
@@ -5444,6 +5714,7 @@ cc_prebuilt_library_shared {
                 "libxml",
                 "libdsutils",
                 "libdiag",
+                "liblog",
                 "libc++",
                 "libc",
                 "libm",
@@ -5556,7 +5827,6 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libdsi_netctrl.so",
             ],
             shared_libs: [
-                "libqmi",
                 "libqdi",
                 "libdiag",
                 "libcutils",
@@ -5569,6 +5839,7 @@ cc_prebuilt_library_shared {
                 "libqmi_common_so",
                 "libqmi_client_qmux",
                 "libqmi_client_helper",
+                "libqmi",
                 "libc++",
                 "libc",
                 "libm",
@@ -6034,6 +6305,8 @@ cc_prebuilt_library_shared {
                 "libdiag",
                 "libcutils",
                 "liblog",
+                "libnetmgr",
+                "libnetmgr_common",
                 "libc++",
                 "libc",
                 "libm",
@@ -6143,8 +6416,8 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libqcmaputils.so",
             ],
             shared_libs: [
-                "libdsutils",
                 "libdiag",
+                "libdsutils",
                 "libc++",
                 "libc",
                 "libm",
@@ -6172,7 +6445,7 @@ cc_prebuilt_library_shared {
                 "libdiag",
                 "liblog",
                 "qtimutex",
-                "libsettings",
+                "libril-qc-logger",
                 "libc++",
                 "libc",
                 "libm",
@@ -6226,30 +6499,6 @@ cc_prebuilt_library_shared {
                 "libcutils",
                 "liblog",
                 "libQSEEComAPI",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libqrtr",
-    owner: "xiaomi",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libqrtr.so",
-            ],
-            shared_libs: [
                 "libc++",
                 "libc",
                 "libm",
@@ -6327,8 +6576,6 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
                 "vendor.qti.hardware.radio.ims@1.0",
                 "vendor.qti.hardware.radio.ims@1.1",
                 "vendor.qti.hardware.radio.ims@1.2",
@@ -6336,6 +6583,7 @@ cc_prebuilt_library_shared {
                 "vendor.qti.hardware.radio.ims@1.4",
                 "vendor.qti.hardware.radio.ims@1.5",
                 "vendor.qti.hardware.radio.ims@1.6",
+                "vendor.qti.hardware.radio.ims@1.7",
                 "vendor.qti.hardware.radio.am@1.0",
                 "vendor.qti.hardware.radio.qcrilhook@1.0",
                 "vendor.qti.hardware.radio.uim@1.0",
@@ -6344,32 +6592,31 @@ cc_prebuilt_library_shared {
                 "vendor.qti.hardware.radio.uim_remote_server@1.0",
                 "vendor.qti.hardware.radio.uim_remote_client@1.0",
                 "vendor.qti.hardware.radio.uim_remote_client@1.1",
+                "vendor.qti.hardware.radio.uim_remote_client@1.2",
                 "vendor.qti.hardware.radio.lpa@1.0",
-                "vendor.qti.hardware.data.connection@1.0",
-                "vendor.qti.hardware.data.connection@1.1",
+                "vendor.qti.hardware.radio.lpa@1.1",
+                "vendor.qti.hardware.radio.lpa@1.2",
                 "vendor.qti.hardware.radio.qtiradio@1.0",
                 "vendor.qti.hardware.radio.qtiradio@2.0",
                 "vendor.qti.hardware.radio.qtiradio@2.1",
                 "vendor.qti.hardware.radio.qtiradio@2.2",
                 "vendor.qti.hardware.radio.qtiradio@2.3",
-                "vendor.qti.hardware.data.iwlan@1.0",
+                "vendor.qti.hardware.radio.qtiradio@2.4",
                 "android.hardware.radio@1.0",
                 "android.hardware.radio.config@1.0",
                 "android.hardware.radio.config@1.1",
                 "android.hardware.radio.config@1.2",
                 "libqcrilFramework",
                 "android.hardware.secure_element@1.0",
+                "android.hardware.secure_element@1.1",
+                "android.hardware.secure_element@1.2",
                 "vendor.qti.hardware.radio.internal.deviceinfo@1.0",
                 "libdsutils",
                 "libcutils",
                 "liblog",
                 "libutils",
                 "qcrild_librilutils",
-                "libril-qc-radioconfig",
-                "libril-qc-ltedirectdisc",
-                "libril-qcril-hook-oem",
                 "libqmi_cci",
-                "libqmi",
                 "libqmi_client_qmux",
                 "libdiag",
                 "libhardware_legacy",
@@ -6382,14 +6629,15 @@ cc_prebuilt_library_shared {
                 "libbinder",
                 "libmdmdetect",
                 "libperipheral_client",
-                "libsettings",
+                "libril-qc-logger",
                 "android.hardware.radio@1.1",
                 "android.hardware.radio@1.2",
                 "android.hardware.radio@1.3",
                 "android.hardware.radio@1.4",
+                "android.hardware.radio@1.5",
                 "android.hardware.radio.deprecated@1.0",
                 "qtimutex",
-                "libprotobuf-cpp-full-vendorcompat",
+                "libprotobuf-cpp-full-3.9.1-vendorcompat",
                 "libvndksupport",
                 "libbase",
                 "libz",
@@ -6403,7 +6651,37 @@ cc_prebuilt_library_shared {
                 "libdsi_netctrl",
                 "libqdp",
                 "liblqe",
+                "vendor.qti.hardware.data.iwlan@1.0",
+                "vendor.qti.hardware.data.connection@1.0",
+                "vendor.qti.hardware.data.connection@1.1",
                 "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libril-qc-logger",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libril-qc-logger.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libcutils",
+                "libc++",
+                "libdiag",
                 "libc",
                 "libm",
                 "libdl",
@@ -6475,8 +6753,6 @@ cc_prebuilt_library_shared {
                 "libsettings",
                 "liblog",
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
                 "vendor.qti.hardware.radio.ims@1.0",
                 "vendor.qti.hardware.radio.qcrilhook@1.0",
                 "vendor.qti.hardware.radio.am@1.0",
@@ -6691,7 +6967,7 @@ cc_prebuilt_library_shared {
                 "libcutils",
                 "libc++",
                 "libdiag",
-                "libprotobuf-cpp-full-vendorcompat",
+                "libprotobuf-cpp-full-3.9.1-vendorcompat",
                 "libc",
                 "libm",
                 "libdl",
@@ -7065,7 +7341,7 @@ cc_prebuilt_library_shared {
             shared_libs: [
                 "qtimutex",
                 "libqcrilFramework",
-                "libsettings",
+                "libril-qc-logger",
                 "liblog",
                 "libc++",
                 "libc",
@@ -7473,8 +7749,6 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -7503,8 +7777,6 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -7534,8 +7806,6 @@ cc_prebuilt_library_shared {
             shared_libs: [
                 "vendor.qti.hardware.radio.ims@1.0",
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -7566,8 +7836,6 @@ cc_prebuilt_library_shared {
                 "vendor.qti.hardware.radio.ims@1.0",
                 "vendor.qti.hardware.radio.ims@1.1",
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -7599,8 +7867,6 @@ cc_prebuilt_library_shared {
                 "vendor.qti.hardware.radio.ims@1.1",
                 "vendor.qti.hardware.radio.ims@1.2",
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -7633,8 +7899,6 @@ cc_prebuilt_library_shared {
                 "vendor.qti.hardware.radio.ims@1.2",
                 "vendor.qti.hardware.radio.ims@1.3",
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -7668,8 +7932,6 @@ cc_prebuilt_library_shared {
                 "vendor.qti.hardware.radio.ims@1.3",
                 "vendor.qti.hardware.radio.ims@1.4",
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -7704,8 +7966,41 @@ cc_prebuilt_library_shared {
                 "vendor.qti.hardware.radio.ims@1.4",
                 "vendor.qti.hardware.radio.ims@1.5",
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.qti.hardware.radio.ims@1.7",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/vendor.qti.hardware.radio.ims@1.7.so",
+            ],
+            shared_libs: [
+                "vendor.qti.hardware.radio.ims@1.0",
+                "vendor.qti.hardware.radio.ims@1.1",
+                "vendor.qti.hardware.radio.ims@1.2",
+                "vendor.qti.hardware.radio.ims@1.3",
+                "vendor.qti.hardware.radio.ims@1.4",
+                "vendor.qti.hardware.radio.ims@1.5",
+                "vendor.qti.hardware.radio.ims@1.6",
+                "libhidlbase",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -7734,8 +8029,6 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -7764,8 +8057,65 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.qti.hardware.radio.lpa@1.1",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/vendor.qti.hardware.radio.lpa@1.1.so",
+            ],
+            shared_libs: [
+                "vendor.qti.hardware.radio.lpa@1.0",
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.qti.hardware.radio.lpa@1.2",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/vendor.qti.hardware.radio.lpa@1.2.so",
+            ],
+            shared_libs: [
+                "vendor.qti.hardware.radio.lpa@1.0",
+                "vendor.qti.hardware.radio.lpa@1.1",
+                "libhidlbase",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -7794,8 +8144,6 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -7824,8 +8172,6 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -7856,8 +8202,6 @@ cc_prebuilt_library_shared {
                 "android.hardware.radio@1.0",
                 "vendor.qti.hardware.radio.qtiradio@1.0",
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -7889,8 +8233,6 @@ cc_prebuilt_library_shared {
                 "vendor.qti.hardware.radio.qtiradio@1.0",
                 "vendor.qti.hardware.radio.qtiradio@2.0",
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -7923,8 +8265,6 @@ cc_prebuilt_library_shared {
                 "vendor.qti.hardware.radio.qtiradio@2.0",
                 "vendor.qti.hardware.radio.qtiradio@2.1",
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -7958,8 +8298,41 @@ cc_prebuilt_library_shared {
                 "vendor.qti.hardware.radio.qtiradio@2.1",
                 "vendor.qti.hardware.radio.qtiradio@2.2",
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.qti.hardware.radio.qtiradio@2.4",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.4.so",
+            ],
+            shared_libs: [
+                "android.hardware.radio@1.0",
+                "android.hardware.radio@1.1",
+                "vendor.qti.hardware.radio.qtiradio@1.0",
+                "vendor.qti.hardware.radio.qtiradio@2.0",
+                "vendor.qti.hardware.radio.qtiradio@2.1",
+                "vendor.qti.hardware.radio.qtiradio@2.2",
+                "vendor.qti.hardware.radio.qtiradio@2.3",
+                "libhidlbase",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -7988,8 +8361,6 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -8019,8 +8390,6 @@ cc_prebuilt_library_shared {
             shared_libs: [
                 "vendor.qti.hardware.radio.uim@1.0",
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -8051,8 +8420,6 @@ cc_prebuilt_library_shared {
                 "vendor.qti.hardware.radio.uim@1.0",
                 "vendor.qti.hardware.radio.uim@1.1",
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -8081,8 +8448,6 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -8112,8 +8477,36 @@ cc_prebuilt_library_shared {
             shared_libs: [
                 "vendor.qti.hardware.radio.uim_remote_client@1.0",
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.qti.hardware.radio.uim_remote_client@1.2",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.2.so",
+            ],
+            shared_libs: [
+                "vendor.qti.hardware.radio.uim_remote_client@1.0",
+                "vendor.qti.hardware.radio.uim_remote_client@1.1",
+                "libhidlbase",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -8142,8 +8535,35 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.qti.ims.callcapability@1.0_vendor",
+    stem: "vendor.qti.ims.callcapability@1.0",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/vendor.qti.ims.callcapability@1.0.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -8173,8 +8593,6 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -8191,8 +8609,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.qti.imsrtpservice@2.0_vendor",
-    stem: "vendor.qti.imsrtpservice@2.0",
+    name: "vendor.qti.ims.factory@1.0",
     owner: "xiaomi",
     strip: {
         none: true,
@@ -8200,12 +8617,12 @@ cc_prebuilt_library_shared {
     target: {
         android_arm64: {
             srcs: [
-                "proprietary/vendor/lib64/vendor.qti.imsrtpservice@2.0.so",
+                "proprietary/vendor/lib64/vendor.qti.ims.factory@1.0.so",
             ],
             shared_libs: [
+                "vendor.qti.ims.callcapability@1.0_vendor",
+                "vendor.qti.ims.rcsconfig@2.0_vendor",
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -8222,7 +8639,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.qti.imsrtpservice@2.1-service-Impl",
+    name: "vendor.qti.ims.factory@1.1",
     owner: "xiaomi",
     strip: {
         none: true,
@@ -8230,7 +8647,39 @@ cc_prebuilt_library_shared {
     target: {
         android_arm64: {
             srcs: [
-                "proprietary/vendor/lib64/vendor.qti.imsrtpservice@2.1-service-Impl.so",
+                "proprietary/vendor/lib64/vendor.qti.ims.factory@1.1.so",
+            ],
+            shared_libs: [
+                "vendor.qti.ims.callcapability@1.0_vendor",
+                "vendor.qti.ims.factory@1.0",
+                "vendor.qti.ims.rcsconfig@2.0_vendor",
+                "vendor.qti.ims.rcsconfig@2.1_vendor",
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.qti.imsrtpservice@3.0-service-Impl",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/vendor.qti.imsrtpservice@3.0-service-Impl.so",
             ],
             shared_libs: [
                 "liblog",
@@ -8239,12 +8688,9 @@ cc_prebuilt_library_shared {
                 "libutils",
                 "libhardware_legacy",
                 "libhardware",
-                "libhwbinder",
                 "libhidlbase",
-                "libhidltransport",
                 "libdiag",
-                "vendor.qti.imsrtpservice@2.0_vendor",
-                "vendor.qti.imsrtpservice@2.1_vendor",
+                "vendor.qti.imsrtpservice@3.0",
                 "libc++",
                 "libc",
                 "libm",
@@ -8258,8 +8704,8 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.qti.imsrtpservice@2.1_vendor",
-    stem: "vendor.qti.imsrtpservice@2.1",
+    name: "vendor.qti.imsrtpservice@3.0_vendor",
+    stem: "vendor.qti.imsrtpservice@3.0",
     owner: "xiaomi",
     strip: {
         none: true,
@@ -8267,13 +8713,10 @@ cc_prebuilt_library_shared {
     target: {
         android_arm64: {
             srcs: [
-                "proprietary/vendor/lib64/vendor.qti.imsrtpservice@2.1.so",
+                "proprietary/vendor/lib64/vendor.qti.imsrtpservice@3.0.so",
             ],
             shared_libs: [
-                "vendor.qti.imsrtpservice@2.0_vendor",
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -8465,10 +8908,16 @@ cc_prebuilt_library_shared {
                 "proprietary/system_ext/lib/libdiag_system.so",
             ],
             shared_libs: [
+                "vendor.qti.diaghal@1.0",
+                "libhidlbase",
                 "liblog",
+                "libutils",
+                "android.hidl.allocator@1.0",
+                "android.hidl.memory@1.0",
+                "libhidlmemory",
+                "libc",
                 "libcutils",
                 "libc++",
-                "libc",
                 "libm",
                 "libdl",
             ],
@@ -8478,10 +8927,16 @@ cc_prebuilt_library_shared {
                 "proprietary/system_ext/lib64/libdiag_system.so",
             ],
             shared_libs: [
+                "vendor.qti.diaghal@1.0",
+                "libhidlbase",
                 "liblog",
+                "libutils",
+                "android.hidl.allocator@1.0",
+                "android.hidl.memory@1.0",
+                "libhidlmemory",
+                "libc",
                 "libcutils",
                 "libc++",
-                "libc",
                 "libm",
                 "libdl",
             ],
@@ -8693,6 +9148,49 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+    name: "vendor.qti.diaghal@1.0",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/system_ext/lib/vendor.qti.diaghal@1.0.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/vendor.qti.diaghal@1.0.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
     name: "lib-imscamera",
     owner: "xiaomi",
     strip: {
@@ -8728,10 +9226,11 @@ cc_prebuilt_library_shared {
                 "android.hardware.camera.device@1.0",
                 "vendor.qti.hardware.camera.device@1.0",
                 "android.hardware.camera.device@3.2",
+                "android.hardware.camera.device@3.3",
                 "android.hardware.camera.device@3.4",
+                "android.hardware.camera.device@3.5",
                 "android.hardware.camera.provider@2.5",
-                "libhwbinder",
-                "libhidltransport",
+                "android.hardware.camera.provider@2.6",
                 "libc++",
                 "libc",
                 "libm",
@@ -8768,7 +9267,7 @@ cc_prebuilt_library_shared {
                 "libnativewindow",
                 "libcamera_client",
                 "libstagefright_foundation",
-                "libqdMetaData.system",
+                "libqdMetaData",
                 "libstagefright",
                 "libbase",
                 "libhardware_legacy",
@@ -8783,10 +9282,11 @@ cc_prebuilt_library_shared {
                 "android.hardware.camera.device@1.0",
                 "vendor.qti.hardware.camera.device@1.0",
                 "android.hardware.camera.device@3.2",
+                "android.hardware.camera.device@3.3",
                 "android.hardware.camera.device@3.4",
+                "android.hardware.camera.device@3.5",
                 "android.hardware.camera.provider@2.5",
-                "libhwbinder",
-                "libhidltransport",
+                "android.hardware.camera.provider@2.6",
                 "libnativehelper",
                 "libandroid_runtime",
                 "libui",
@@ -8822,14 +9322,13 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "lib-imsvideocodec",
+                "libmediandk",
+                "libnativewindow",
                 "libion",
                 "lib-imsvtutils",
                 "libandroid",
-                "libhwbinder",
                 "libhidlbase",
-                "libhidltransport",
-                "vendor.qti.imsrtpservice@2.1",
-                "vendor.qti.imsrtpservice@2.0",
+                "vendor.qti.imsrtpservice@3.0",
                 "libdiag_system",
                 "libcutils",
                 "libutils",
@@ -8965,7 +9464,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.qti.imsrtpservice@2.0",
+    name: "vendor.qti.imsrtpservice@3.0",
     owner: "xiaomi",
     strip: {
         none: true,
@@ -8973,43 +9472,10 @@ cc_prebuilt_library_shared {
     target: {
         android_arm64: {
             srcs: [
-                "proprietary/system_ext/lib64/vendor.qti.imsrtpservice@2.0.so",
+                "proprietary/system_ext/lib64/vendor.qti.imsrtpservice@3.0.so",
             ],
             shared_libs: [
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
-                "liblog",
-                "libutils",
-                "libcutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    system_ext_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "vendor.qti.imsrtpservice@2.1",
-    owner: "xiaomi",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/system_ext/lib64/vendor.qti.imsrtpservice@2.1.so",
-            ],
-            shared_libs: [
-                "vendor.qti.imsrtpservice@2.0",
-                "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -9136,15 +9602,6 @@ dex_import {
     jars: [
         "proprietary/system/framework/tcmclient.jar",
     ],
-}
-
-dex_import {
-    name: "QtiTelephonyServicelibrary",
-    owner: "xiaomi",
-    jars: [
-        "proprietary/system_ext/framework/QtiTelephonyServicelibrary.jar",
-    ],
-    system_ext_specific: true,
 }
 
 dex_import {
@@ -9560,13 +10017,11 @@ cc_prebuilt_binary {
                 "libqmiservices",
                 "libqmi_csi",
                 "libqmi_cci",
-                "vendor.qti.imsrtpservice@2.0_vendor",
-                "vendor.qti.imsrtpservice@2.1_vendor",
-                "vendor.qti.imsrtpservice@2.1-service-Impl",
+                "vendor.qti.imsrtpservice@3.0",
+                "vendor.qti.imsrtpservice@3.0-service-Impl",
                 "libutils",
-                "libhwbinder",
                 "libhidlbase",
-                "libhidltransport",
+                "libavservices_minijail",
                 "libc++",
                 "libc",
                 "libm",
@@ -9598,13 +10053,10 @@ cc_prebuilt_binary {
                 "libqmi_csi",
                 "libdsi_netctrl",
                 "libdiag",
-                "libwpa_client",
                 "libcneapiclient",
                 "libandroid_net",
                 "libutils",
                 "libhidlbase",
-                "libhidltransport",
-                "libhwbinder",
                 "libc++",
                 "libc",
                 "libm",
@@ -9662,9 +10114,7 @@ cc_prebuilt_binary {
             shared_libs: [
                 "liblog",
                 "libbase",
-                "libhwbinder",
                 "libhidlbase",
-                "libhidltransport",
                 "libcutils",
                 "libutils",
                 "libc++",
@@ -9849,15 +10299,14 @@ cc_prebuilt_binary {
                 "libnlnetmgr",
                 "libnetmgr",
                 "libnetmgr_common",
-                "libqmi",
                 "libqmiservices",
-                "libqmi_cci",
                 "libqmi_common_so",
+                "libqmi_cci",
                 "libqmi_client_qmux",
                 "libqmi_client_helper",
+                "libqmi",
                 "libutils",
                 "libhidlbase",
-                "libhidltransport",
                 "libandroid_net",
                 "android.system.net.netd@1.1",
                 "libqti_vndfwk_detect",
@@ -9917,7 +10366,6 @@ cc_prebuilt_binary {
             shared_libs: [
                 "libutils-v33",
                 "libcutils",
-                "libutils",
                 "liblog",
                 "libbinder",
                 "libqmi_cci",
@@ -10107,20 +10555,19 @@ cc_prebuilt_binary {
                 "proprietary/vendor/bin/qti",
             ],
             shared_libs: [
+                "libc",
                 "liblog",
+                "libdiag",
+                "libdsutils",
                 "librmnetctl",
                 "libqmi_cci",
-                "libdsutils",
-                "libdiag",
                 "libqmiservices",
-                "libqmi",
                 "libnetutils",
                 "libcutils",
                 "libqmi_client_qmux",
                 "libqmi_encdec",
                 "libqcmaputils",
                 "libc++",
-                "libc",
                 "libm",
                 "libdl",
             ],
